@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo</title>
+    <script defer src="script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bilbo&family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+
+    <!-- Tela inicial -->
+    <div id="container-inicial" class="text-center w-full h-screen bg-cover bg-center flex flex-col items-center justify-center transition-all duration-500" style="background-image: url('https://wallpapercave.com/wp/wp5252110.jpg');">
+        <h1 class="text-7xl font-bold mb-6" style="font-family: 'Bilbo', cursive;">
+          Quiz <br> Senhor dos Anéis
+        </h1>
+        <p class="text-lg mb-4">Teste seus conhecimentos e divirta-se com os amigos!</p>
+        <button 
+          onclick="iniciarQuiz()" 
+          class="relative text-white font-bold text-lg py-3 px-6 rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-600 shadow-[0_0_20px_rgba(255,223,0,0.8)] 
+          hover:shadow-[0_0_30px_rgba(255,223,0,1),0_0_60px_rgba(255,174,0,0.7)] 
+          transition-all duration-300">
+          Iniciar Quiz
+        </button>
+    </div>
+
+    <!-- Tela do Quiz -->
+    <div id="container-quiz" class="hidden flex flex-col text-center w-full h-screen items-center justify-center">
+        <h2 id="vez-jogador" class="text-2xl font-bold mb-6"></h2>
+        <p id="pergunta" class="text-xl mb-4"></p>
+        <div class="grid grid-cols-2 gap-4">
+            <button onclick="selecionarResposta(0)" class="opcao bg-yellow-400 hover:bg-yellow-600 text-white py-2 px-4 rounded transition"></button>
+            <button onclick="selecionarResposta(1)" class="opcao bg-yellow-400 hover:bg-yellow-600 text-white py-2 px-4 rounded transition"></button>
+            <button onclick="selecionarResposta(2)" class="opcao bg-yellow-400 hover:bg-yellow-600 text-white py-2 px-4 rounded transition"></button>
+            <button onclick="selecionarResposta(3)" class="opcao bg-yellow-400 hover:bg-yellow-600 text-white py-2 px-4 rounded transition"></button>
+        </div>
+        <button 
+          id="botao-proxima" 
+          onclick="proximaPergunta()" 
+          disabled 
+          class="relative text-white font-bold text-lg py-3 px-6 rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-600 shadow-[0_0_20px_rgba(255,223,0,0.8)] 
+          hover:shadow-[0_0_30px_rgba(255,223,0,1),0_0_60px_rgba(255,174,0,0.7)] 
+          transition-all duration-300 mt-6">
+          Próxima Pergunta
+        </button>
+
+    </div>
+
+    <!-- Tela de Resultado -->
+    <div id="container-resultado" class="hidden text-center flex flex-col items-center justify-center">
+        <h2 class="text-4xl font-bold mb-6">Resultado</h2>
+        <p id="pontuacao-jogador1" class="text-xl mb-2"></p>
+        <p id="pontuacao-jogador2" class="text-xl mb-2"></p>
+        <p id="vencedor" class="text-2xl font-bold text-yellow-400 mb-4"></p>
+        <p id="tempo" class="text-lg mb-6"></p>
+        <button 
+          onclick="reiniciarQuiz()" 
+          class="relative text-white font-bold text-lg py-3 px-6 rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-600 shadow-[0_0_20px_rgba(255,223,0,0.8)] 
+          hover:shadow-[0_0_30px_rgba(255,223,0,1),0_0_60px_rgba(255,174,0,0.7)] 
+          transition-all duration-300">
+          Jogar Novamente
+        </button>
+    </div>
+</body>
+</html>
